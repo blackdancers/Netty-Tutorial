@@ -1,0 +1,43 @@
+group 'com.tyue'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8  //编译
+
+/**
+ * Gradle 错误 编码GBK的不可映射字符
+ */
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}
+repositories {
+    mavenCentral()
+    //url("https://plugins.gradle.org/m2/")
+}
+
+//allprojects{
+//    repositories {
+//        all { ArtifactRepository repo ->
+//            println repo.url.toString()
+//            if ((repo instanceof MavenArtifactRepository) && repo.url.toString().startsWith("https://repo1.maven.org/maven2")) {
+//                project.logger.warn "Repository ${repo.url} removed. Only $coporateRepoUrl is allowed"
+//                remove repo
+//            }
+//        }
+//        maven {
+//            url "http://maven.oschina.net/content/groups/public"
+//        }
+//    }
+//}
+
+dependencies {
+    //testCompile group: 'junit', name: 'junit', version: '4.11'
+    testCompile(
+            "junit:junit:4.11"
+    )
+    // https://mvnrepository.com/artifact/io.netty/netty-all
+    compile group: 'io.netty', name: 'netty-all', version: '4.1.10.Final'
+
+}
