@@ -12,6 +12,7 @@ import java.nio.charset.Charset;
 
 /**
  * 自定义处理器
+ * 重写事件回调方法
  */
 public class TestHttpServerHandler extends SimpleChannelInboundHandler<HttpObject> {
     /**
